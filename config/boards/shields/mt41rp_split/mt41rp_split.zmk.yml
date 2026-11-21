@@ -1,0 +1,12 @@
+file_format: "1"
+id: mt41rp_split
+name: mt-41rp split
+type: shield
+url: https://github.com/os55010-org/mt-41rp-split
+requires: [xiao_ble]
+features:
+  - keys
+  - pointer
+siblings:
+  - mt41rp_split_left
+  - mt41rp_split_right

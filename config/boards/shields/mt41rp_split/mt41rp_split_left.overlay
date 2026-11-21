@@ -1,0 +1,12 @@
+#include "mt41rp_split.dtsi"
+
+&kscan0 {
+    col-gpios
+        = <&gpio1 11 GPIO_ACTIVE_HIGH>  // D6  col1
+        , <&gpio1 12 GPIO_ACTIVE_HIGH>  // D7  col2
+        , <&gpio1 13 GPIO_ACTIVE_HIGH>  // D8  col3
+        , <&gpio1 14 GPIO_ACTIVE_HIGH>  // D9  col4
+        , <&gpio1 15 GPIO_ACTIVE_HIGH>  // D10 col5
+        , <&gpio0 4  GPIO_ACTIVE_HIGH>  // D4  col6（親指）
+        ;
+};

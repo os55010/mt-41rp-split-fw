@@ -1,0 +1,23 @@
+# 右手（トラックボール側）をセントラルにする
+if SHIELD_MT41RP_SPLIT_RIGHT
+
+config ZMK_KEYBOARD_NAME
+    default "mt41rp"
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+
+config PAW3222
+    default y
+
+endif
+
+if SHIELD_MT41RP_SPLIT_LEFT || SHIELD_MT41RP_SPLIT_RIGHT
+
+config ZMK_SPLIT
+    default y
+
+config ZMK_POINTING
+    default y
+
+endif

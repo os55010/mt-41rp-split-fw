@@ -1,11 +1,16 @@
-config MT41RP_USB_POWER_LED
-    bool "USB から給電されている間、XIAO の LED を点灯する"
-    depends on SOC_NRF52840
-    depends on $(dt_alias_enabled,usb-power-led)
+config MT41RP_STATUS_LEDS
+    bool "充電中は緑、ペアリング中は青の点滅で XIAO の LED を光らせる"
+    depends on DT_HAS_ZMK_MT41RP_STATUS_LEDS_ENABLED
+    depends on ZMK_BLE
     select GPIO
     default y
 
-config MT41RP_USB_POWER_LED_POLL_MS
-    int "VBUS を確認する間隔（ms）"
-    depends on MT41RP_USB_POWER_LED
+config MT41RP_STATUS_LEDS_BLINK_MS
+    int "ペアリング中の点滅の間隔（ms）"
+    depends on MT41RP_STATUS_LEDS
+    default 500
+
+config MT41RP_STATUS_LEDS_POLL_MS
+    int "ペアリング中でないときに状態を確認する間隔（ms）"
+    depends on MT41RP_STATUS_LEDS
     default 1000

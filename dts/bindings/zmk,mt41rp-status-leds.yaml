@@ -1,0 +1,21 @@
+description: |
+  mt-41rp split の状態 LED。
+  バッテリーに充電中は charging-led を点灯、ペアリング中は pairing-led を点滅する。
+
+compatible: "zmk,mt41rp-status-leds"
+
+properties:
+  chg-gpios:
+    type: phandle-array
+    required: true
+    description: 充電 IC の CHG 出力（充電中にアクティブ）
+
+  charging-led:
+    type: phandle
+    required: true
+    description: 充電中に点灯する gpio-leds の子ノード
+
+  pairing-led:
+    type: phandle
+    required: true
+    description: ペアリング中に点滅する gpio-leds の子ノード

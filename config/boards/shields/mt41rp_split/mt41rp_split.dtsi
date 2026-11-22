@@ -18,9 +18,12 @@
  */
 
 / {
-    aliases {
-        // USB 給電中に点灯する LED（led0 = 赤, led1 = 緑, led2 = 青）
-        usb-power-led = &led2;
+    // 状態 LED（src/status_leds.c）。XIAO の LED は led0 = 赤, led1 = 緑, led2 = 青
+    status_leds {
+        compatible = "zmk,mt41rp-status-leds";
+        chg-gpios = <&gpio0 17 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;  // BQ25101 CHG（充電中 Low）
+        charging-led = <&led1>;  // 充電中: 緑で点灯
+        pairing-led = <&led2>;   // ペアリング中: 青で点滅
     };
 
     chosen {

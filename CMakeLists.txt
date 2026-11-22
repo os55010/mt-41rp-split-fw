@@ -1,4 +1,4 @@
-if(CONFIG_MT41RP_USB_POWER_LED)
-  zephyr_library()
-  zephyr_library_sources(src/usb_power_led.c)
+if(CONFIG_MT41RP_STATUS_LEDS)
+  # ZMK のヘッダ（zmk/ble.h など）を使うので app ターゲットに追加する
+  target_sources(app PRIVATE src/status_leds.c)
 endif()

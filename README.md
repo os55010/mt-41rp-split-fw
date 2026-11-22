@@ -38,3 +38,10 @@ GitHub Actions（`.github/workflows/build.yml`）で次の 3 つがビルドさ�
 - マトリクスは COL2ROW。右手は `col-offset = <6>` で、全体を 4 行 × 11 列として扱う
 - 右手は NFC ピンを GPIO に使うので、overlay に `&uicr { nfct-pins-as-gpios; };` を入れている
 - D6 / D7 を col に使うので `xiao_serial` は無効化している
+
+## USB 給電中の LED
+USB から給電されている間、XIAO の青色 LED が左右とも点灯する（`src/usb_power_led.c`）。
+VBUS の有無を 1 秒ごとに確認しているので、抜き差ししてから最大 1 秒で切り替わる。
+
+- 色を変える: `mt41rp_split.dtsi` の `usb-power-led = &led2;` を `&led0`（赤）/ `&led1`（緑）に
+- 無効にする: conf に `CONFIG_MT41RP_USB_POWER_LED=n`

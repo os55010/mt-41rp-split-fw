@@ -18,6 +18,11 @@
  */
 
 / {
+    aliases {
+        // USB 給電中に点灯する LED（led0 = 赤, led1 = 緑, led2 = 青）
+        usb-power-led = &led2;
+    };
+
     chosen {
         zmk,kscan = &kscan0;
         zmk,physical-layout = &mt41rp_physical_layout;

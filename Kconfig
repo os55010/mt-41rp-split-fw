@@ -1,0 +1,11 @@
+config MT41RP_USB_POWER_LED
+    bool "USB から給電されている間、XIAO の LED を点灯する"
+    depends on SOC_NRF52840
+    depends on $(dt_alias_enabled,usb-power-led)
+    select GPIO
+    default y
+
+config MT41RP_USB_POWER_LED_POLL_MS
+    int "VBUS を確認する間隔（ms）"
+    depends on MT41RP_USB_POWER_LED
+    default 1000

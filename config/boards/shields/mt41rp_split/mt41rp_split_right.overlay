@@ -71,7 +71,7 @@
         spi-max-frequency = <2000000>;
         irq-gpios = <&gpio0 10 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;  // NFC2 mot
 
-        invert-x;
-        invert-y;
+        // センサーの向き: ortho42tb（invert-x / invert-y）から 180° 回転させたもの。
+        // 180° 回転は X・Y の両方の反転なので、どちらの invert も付けない。
     };
 };
